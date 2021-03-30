@@ -18,6 +18,6 @@ jobs:
       - name: Build
         run: npm run build
       - name: Run
-        uses: altaired/devops-label
+        uses: altaired/devops-label@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
