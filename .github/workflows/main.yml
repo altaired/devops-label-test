@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: Validate and label PR
       id: vlpr
-      uses: altaired/devops-label@v1
+      uses: altaired/devops-label@v1.1
       with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/label.yml
