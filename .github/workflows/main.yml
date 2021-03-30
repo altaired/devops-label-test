@@ -1,26 +1,13 @@
 on: [pull_request]
 
 jobs:
-  validator:
+  hello_world_job:
     runs-on: ubuntu-latest
-    name: Labeling and Validation
+    name: Validator
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          repository: altaired/devops-label
-          path: devops-label
-      - name: Setting up node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '12'
-      - name: Install
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Run
-        uses: altaired/devops-label@v1
-        with:
+    - name: Validate and label PR
+      id: vlpr
+      uses: altaired/devops-label@v1
+      with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/label.yml
