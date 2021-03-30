@@ -1,0 +1,23 @@
+on: [pull_request]
+
+jobs:
+  validator:
+    runs-on: ubuntu-latest
+    name: Labeling and Validation
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setting up node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+      - name: Install
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Run
+        uses: altaired/devops-label
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
