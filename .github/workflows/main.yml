@@ -1,13 +1,13 @@
 on: [pull_request]
 
 jobs:
-  hello_world_job:
+  validator:
     runs-on: ubuntu-latest
     name: Validator
     steps:
     - name: Validate and label PR
       id: vlpr
-      uses: altaired/devops-label@v1.1
+      uses: altaired/devops-label@v1.2
       with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/label.yml
