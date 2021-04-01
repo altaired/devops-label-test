@@ -1,1 +1,1 @@
-This is an example proposal
+This is an example proposals
